@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export APP_NAMESPACE="$1"
+shift
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export CONFIG_DIR="${CONFIG_DIR:-$XDG_CONFIG_HOME/$APP_NAMESPACE}"
+export CONFIG="${CONFIG:-$CONFIG_DIR/config.sh}"
+
+if [ -r "$CONFIG" ]; then
+  source "$CONFIG"
+fi
+
+export CACHE_DIR="${CACHE_DIR:-$XDG_CACHE_HOME/$APP_NAMESPACE}"
+
+exec "$@"

@@ -1,0 +1,3 @@
+wrapper script to add an xdg-respecting config file to other scripts
+
+* does github really respect org headings?
